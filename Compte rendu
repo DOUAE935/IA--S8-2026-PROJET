@@ -1,137 +1,117 @@
-📄 Compte rendu détaillé : Interprétation des résultats de la modélisation
-🔍 1. Contexte de l’étude
 
-Dans le cadre de cette analyse, l’objectif principal était de prédire le montant de crédit accordé aux clients en se basant sur un ensemble de variables explicatives liées au profil du demandeur.
+📄 Compte rendu – Prédiction du montant de crédit accordé
+🔹 1. Introduction
 
-La démarche adoptée repose sur une approche de modélisation statistique / machine learning, permettant d’identifier les facteurs déterminants dans la décision d’octroi de crédit et d’évaluer la capacité du modèle à reproduire ce processus.
+Dans le cadre de cette étude, l’objectif principal est de développer un modèle permettant de prédire le montant de crédit accordé aux clients à partir de plusieurs variables explicatives liées à leur profil socio-économique.
 
-📊 2. Analyse et interprétation des résultats
-2.1 Importance des variables explicatives
+Cette problématique s’inscrit dans un contexte où les المؤسسات financières cherchent à optimiser leurs décisions d’octroi de crédit tout en minimisant les risques liés au non-remboursement.
 
-Les résultats obtenus mettent en évidence que certaines variables jouent un rôle déterminant dans la prédiction du montant de crédit.
+Ainsi, cette analyse vise à :
 
-En particulier :
+Identifier les variables influençant le montant du crédit
 
-Le revenu du client apparaît comme un facteur clé
-→ Plus le revenu est élevé, plus le montant du crédit accordé augmente
-→ Cela traduit la logique bancaire basée sur la capacité de remboursement
+Construire un modèle de prédiction
 
-La stabilité professionnelle (type de contrat, ancienneté)
-→ Une situation stable réduit le risque perçu par la banque
+Évaluer la performance de ce modèle
 
-L’historique de crédit
-→ Un bon historique favorise l’accès à des montants plus élevés
-→ Un historique négatif entraîne une limitation du crédit
+🔹 2. Méthodologie
 
-L’âge ou la situation personnelle (selon les résultats)
-→ Peut influencer indirectement la solvabilité et la durée du crédit
+Afin de répondre à cet objectif, une démarche analytique a été adoptée.
 
-👉 Ces résultats confirment que le modèle capte des logiques économiques réelles, utilisées dans l’analyse financière.
+📌 2.1 Préparation des données
 
-2.2 Variables peu significatives
+Les données ont été nettoyées et préparées :
 
-Certaines variables présentent un impact faible sur la prédiction :
+Traitement des valeurs manquantes
 
-Leur coefficient est faible
+Encodage des variables qualitatives
 
-Ou leur contribution à la performance globale du modèle est limitée
+Séparation entre variable cible (montant du crédit) et variables explicatives
 
-👉 Cela peut s’expliquer par :
+📌 2.2 Choix du modèle
 
-un manque de corrélation avec la variable cible
+Un modèle de régression (ex : régression linéaire) a été utilisé afin d’expliquer la relation entre les variables.
 
-ou une redondance avec d’autres variables
+📌 2.3 Évaluation du modèle
 
-➡️ Ces variables pourraient être supprimées dans une version améliorée du modèle afin d’optimiser sa performance.
+Les performances ont été mesurées à l’aide de :
 
-2.3 Évaluation de la performance du modèle
+R² (coefficient de détermination)
 
-La qualité du modèle a été évaluée à l’aide de plusieurs indicateurs :
+MAE (erreur absolue moyenne)
 
-Le coefficient de détermination (R²)
-→ Mesure la capacité du modèle à expliquer la variance du montant de crédit
-→ Un R² élevé indique une bonne qualité d’ajustement
+RMSE (erreur quadratique moyenne)
 
-Les erreurs de prédiction (MAE, RMSE)
-→ Mesurent l’écart entre les valeurs réelles et prédites
-→ Des valeurs faibles indiquent une bonne précision
+🔹 3. Résultats obtenus
 
-👉 Interprétation globale :
+Les résultats du modèle montrent que :
 
-Si R² est élevé et erreurs faibles → modèle performant et fiable
+Le modèle présente une capacité de prédiction (faible / moyenne / élevée selon ton cas)
 
-Si R² faible ou erreurs élevées → modèle à améliorer
+Certaines variables ont un impact significatif sur le montant du crédit
 
-2.4 Capacité de généralisation
+Les valeurs prédites sont globalement proches des valeurs réelles
 
-Un point important dans l’analyse est la capacité du modèle à :
+Les visualisations réalisées (histogrammes, scatter plots, etc.) permettent de mieux comprendre ces résultats.
 
-bien prédire sur les données d’entraînement
+🔹 4. Interprétation et discussion
 
-mais aussi sur de nouvelles données
+L’analyse des résultats permet de dégager plusieurs observations importantes :
 
-👉 Si les performances sont proches entre train/test :
-→ le modèle est robuste
+📊 4.1 Influence des variables
 
-👉 Si écart important :
-→ risque de surapprentissage (overfitting)
+Le revenu est un facteur déterminant
 
-📈 3. Discussion des résultats
+La stabilité professionnelle influence positivement le montant accordé
 
-Les résultats obtenus permettent de tirer plusieurs enseignements importants :
+L’historique de crédit joue un rôle essentiel dans la décision
 
-Le modèle reproduit de manière cohérente le comportement des institutions financières
+👉 Cela montre que le modèle reproduit une logique réelle basée sur la capacité de remboursement et la gestion du risque.
 
-Il met en évidence l’importance de la gestion du risque dans l’octroi de crédit
+📊 4.2 Qualité du modèle
 
-Il confirme que la décision repose sur des critères quantifiables et mesurables
+Si R² est élevé → le modèle explique bien les données
 
-Cependant, certaines limites peuvent être relevées :
+Si erreurs faibles → bonne précision
 
-Données insuffisantes ou incomplètes
+👉 Cela signifie que le modèle est globalement fiable pour la prédiction.
 
-Absence de certaines variables qualitatives importantes
+📊 4.3 Limites de l’étude
 
-Choix du modèle pouvant influencer les résultats
+Cependant, certaines limites peuvent être mentionnées :
 
-👉 Des améliorations possibles :
+Absence de certaines variables importantes
 
-Tester d’autres modèles (Random Forest, XGBoost…)
+Taille ou qualité des données
+
+Choix du modèle (qui peut être amélioré)
+
+📊 4.4 Améliorations possibles
+
+Pour améliorer les résultats, il serait possible de :
+
+Tester des modèles plus avancés (Random Forest, XGBoost)
 
 Ajouter de nouvelles variables explicatives
 
 Optimiser les paramètres du modèle
 
-🧾 4. Conclusion générale
+🔹 5. Conclusion
 
-Cette étude a permis de développer un modèle de prédiction du montant de crédit accordé, basé sur plusieurs caractéristiques des clients.
+Cette étude a permis de mettre en place un modèle de prédiction du montant de crédit accordé en fonction de plusieurs caractéristiques des clients.
 
 Les résultats montrent que :
 
-Le modèle identifie correctement les variables les plus influentes
+Le modèle est capable d’identifier les variables les plus influentes
 
-Il offre une performance globalement satisfaisante (selon les indicateurs)
+Il offre une performance globalement satisfaisante
 
-Il reflète fidèlement les pratiques utilisées dans le secteur bancaire
+Il reflète les pratiques réelles du secteur bancaire
 
-👉 En conclusion, cette modélisation constitue un outil pertinent pour :
+👉 Ce travail constitue ainsi un outil utile pour :
 
-améliorer la prise de décision en matière de crédit
+améliorer la prise de décision
 
-automatiser le processus d’évaluation des dossiers
+automatiser l’analyse des demandes de crédit
 
 réduire les risques financiers
-
-✨ Résumé final
-
-En résumé, le modèle développé permet de prédire efficacement le montant de crédit accordé en s’appuyant sur des variables clés telles que le revenu, la stabilité professionnelle et l’historique de crédit.
-
-Les résultats obtenus confirment que :
-
-la capacité financière du client est le principal facteur déterminant
-
-le modèle présente une performance acceptable et exploitable
-
-cette approche peut être utilisée comme outil d’aide à la décision
-
-👉 Ce travail met ainsi en évidence l’intérêt de la data et de la modélisation dans le domaine financier, tout en ouvrant la voie à des améliorations futures pour renforcer la précision et la robustesse du modèle
