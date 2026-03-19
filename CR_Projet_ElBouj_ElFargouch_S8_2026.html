@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compte Rendu — Al-Wifaq Bank · ENCG Settat S8 2025–2026</title>
+<style>
+  /* ── Variables institutionnelles ENCG ── */
+  :root {
+    --vert-encg:   #006633;
+    --vert-fonce:  #004422;
+    --or-accent:   #D4A017;
+    --anthracite:  #2C2C2C;
+    --gris-clair:  #F2F2F2;
+    --gris-titre:  #E8F5E9;
+    --blanc:       #FFFFFF;
+    --code-bg:     #F8F8F8;
+  }
+
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: var(--anthracite);
+    background: #ECECEC;
+  }
+
+  /* ── Page simulée A4 ── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    background: var(--blanc);
+    padding: 25mm 25mm 25mm 30mm;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    page-break-after: always;
+  }
+
+  /* ── Bandeau en-tête ENCG ── */
+  .bandeau {
+    background: var(--vert-encg);
+    color: var(--blanc);
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13pt;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .sous-titre-ecole {
+    text-align: center;
+    font-size: 10pt;
+    color: var(--vert-fonce);
+    margin: 4px 0 8px;
+    font-style: italic;
+  }
+
+  /* ── Ligne décorative or ── */
+  .ligne-or {
+    border: none;
+    border-top: 3px solid var(--or-accent);
+    margin: 8px 0;
+  }
+
+  /* ── Boîte titre du projet ── */
+  .titre-projet {
+    background: var(--gris-titre);
+    border: 1.5px solid var(--vert-encg);
+    text-align: center;
+    padding: 14px 20px;
+    margin: 18px 0;
+  }
+  .titre-projet .type-doc {
+    background: var(--vert-fonce);
+    color: var(--blanc);
+    display: inline-block;
+    padding: 4px 20px;
+    font-size: 13pt;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .titre-projet .intitule {
+    font-size: 14pt;
+    font-weight: bold;
+    color: var(--vert-fonce);
+    margin-bottom: 4px;
+  }
+  .titre-projet .sous-intitule {
+    font-size: 11pt;
+    color: var(--vert-fonce);
+    font-style: italic;
+  }
+
+  /* ── Tableau de garde ── */
+  .table-garde {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 11pt;
+  }
+  .table-garde td {
+    padding: 7px 12px;
+    border: 1px solid #CCCCCC;
+  }
+  .table-garde td.label {
+    background: var(--vert-encg);
+    color: var(--blanc);
+    font-weight: bold;
+    width: 38%;
+  }
+  .table-garde tr:nth-child(even) td.value { background: var(--gris-clair); }
+  .table-garde td.value { background: var(--blanc); }
+
+  /* ── Numérotation de page (footer) ── */
+  .footer-page {
+    border-top: 1.5px solid var(--vert-encg);
+    margin-top: 30px;
+    padding-top: 6px;
+    text-align: center;
+    font-size: 9pt;
+    color: #666;
+  }
+  .footer-page span { color: var(--vert-encg); font-weight: bold; }
+
+  /* ── Sommaire ── */
+  .sommaire-liste { list-style: none; margin: 12px 0; }
+  .sommaire-liste li { padding: 4px 0; font-size: 11pt; border-bottom: 1px dotted #CCC; }
+  .sommaire-liste li.niveau1 { font-weight: bold; color: var(--vert-encg); padding-top: 8px; }
+  .sommaire-liste li.niveau2 { padding-left: 24px; color: var(--anthracite); }
+
+  /* ── Titres ── */
+  h1 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: var(--vert-encg);
+    margin: 24px 0 6px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--vert-encg);
+    page-break-after: avoid;
+  }
+  h2 {
+    font-size: 12.5pt;
+    font-weight: bold;
+    color: var(--vert-fonce);
+    margin: 18px 0 6px;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: bold;
+    color: var(--vert-fonce);
+    margin: 14px 0 4px;
+    page-break-after: avoid;
+  }
+
+  /* ── Paragraphes ── */
+  p {
+    text-align: justify;
+    text-indent: 1cm;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  p.no-indent { text-indent: 0; }
+
+  /* ── Encadré problématique ── */
+  .encadre-problematique {
+    background: var(--gris-titre);
+    border-left: 5px solid var(--vert-encg);
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-style: italic;
+    color: var(--vert-fonce);
+    font-size: 11.5pt;
+    line-height: 1.6;
+  }
+
+  /* ── Encadré note méthodologique ── */
+  .encadre-note {
+    background: #FFF8E1;
+    border-left: 5px solid var(--or-accent);
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-style: italic;
+    color: #7B5900;
+    font-size: 10.5pt;
+  }
+
+  /* ── Tableaux ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 4px;
+    font-size: 10.5pt;
+  }
+  table thead tr th {
+    background: var(--vert-encg);
+    color: var(--blanc);
+    font-weight: bold;
+    padding: 7px 10px;
+    text-align: center;
+    border: 1px solid var(--vert-fonce);
+  }
+  table tbody tr:nth-child(odd)  td { background: var(--blanc); }
+  table tbody tr:nth-child(even) td { background: var(--gris-clair); }
+  table tbody td {
+    padding: 6px 10px;
+    border: 1px solid #CCCCCC;
+    vertical-align: top;
+  }
+  table tbody td.center { text-align: center; }
+  table tbody td.bold   { font-weight: bold; }
+  .table-caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 9.5pt;
+    color: #666;
+    margin-bottom: 14px;
+  }
+
+  /* ── Blocs de code ── */
+  pre {
+    background: var(--code-bg);
+    border-left: 4px solid var(--vert-encg);
+    padding: 10px 14px;
+    margin: 8px 0 14px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 9pt;
+    color: #222;
+    overflow-x: auto;
+    line-height: 1.55;
+    white-space: pre;
+  }
+  code { font-family: "Courier New", Courier, monospace; font-size: 9.5pt; background: #EEE; padding: 1px 4px; border-radius: 2px; }
+
+  /* ── Résultats console ── */
+  .console {
+    background: #1E1E1E;
+    color: #D4D4D4;
+    border-left: 4px solid var(--or-accent);
+    padding: 10px 14px;
+    margin: 8px 0 14px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 9pt;
+    line-height: 1.55;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .console .ok   { color: #6AC16A; }
+  .console .num  { color: #9CDCFE; }
+  .console .head { color: var(--or-accent); font-weight: bold; }
+
+  /* ── Listes ── */
+  ol, ul { margin: 8px 0 8px 2cm; }
+  li { margin-bottom: 4px; line-height: 1.5; }
+
+  /* ── Blockquote ── */
+  blockquote {
+    margin: 10px 0;
+    padding: 10px 16px;
+    background: var(--gris-titre);
+    border-left: 5px solid var(--vert-encg);
+    font-style: italic;
+    color: var(--vert-fonce);
+  }
+
+  /* ── Séparateurs de section ── */
+  .sep { border: none; border-top: 1px solid #CCC; margin: 20px 0; }
+
+  /* ── Rang podium ── */
+  .gold { background: #FFF9E0 !important; font-weight: bold; }
+
+  /* ── Pied de document ── */
+  .pied-doc {
+    margin-top: 30px;
+    padding-top: 8px;
+    border-top: 2px solid var(--or-accent);
+    text-align: center;
+    font-size: 9.5pt;
+    color: #555;
+    font-style: italic;
+  }
+
+  /* ── Impression ── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; padding: 25mm 25mm 25mm 30mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PAGE DE GARDE
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="bandeau">ÉCOLE NATIONALE DE COMMERCE ET DE GESTION DE SETTAT</div>
+  <div class="sous-titre-ecole">Université Hassan 1<sup>er</sup> &nbsp;·&nbsp; Settat, Maroc</div>
+  <hr class="ligne-or">
+
+  <div class="titre-projet">
+    <div class="type-doc">COMPTE RENDU DE PROJET</div>
+    <div class="intitule">Prédiction du Montant de Crédit Bancaire</div>
+    <div class="sous-intitule">Al-Wifaq Bank — Casablanca, Maroc</div>
+  </div>
+
+  <table class="table-garde">
+    <tr><td class="label">Module</td>        <td class="value">Machine Learning Appliqué à la Finance</td></tr>
+    <tr><td class="label">Filière</td>        <td class="value">CAC — Comptabilité, Audit et Contrôle &nbsp;|&nbsp; L3 S8</td></tr>
+    <tr><td class="label">Réalisé par</td>   <td class="value"><strong>Wissal EL BOUJ</strong><br><strong>Douaa EL FARGOUCH</strong></td></tr>
+    <tr><td class="label">Encadrant</td>     <td class="value">M. LARHLIMI</td></tr>
+    <tr><td class="label">Période</td>        <td class="value">Du 10/03/2026 au 17/03/2026</td></tr>
+    <tr><td class="label">Année Universitaire</td><td class="value"><strong>2025–2026</strong></td></tr>
+  </table>
+
+  <hr class="ligne-or">
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SOMMAIRE
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <h1>SOMMAIRE</h1>
+
+  <ul class="sommaire-liste">
+    <li class="niveau1">I. &nbsp;&nbsp;&nbsp; INTRODUCTION</li>
+    <li class="niveau2">I.1 &nbsp;&nbsp; Contexte et problématique</li>
+    <li class="niveau2">I.2 &nbsp;&nbsp; Objectifs du projet</li>
+    <li class="niveau2">I.3 &nbsp;&nbsp; Méthodologie adoptée</li>
+    <li class="niveau1">II. &nbsp;&nbsp; DÉVELOPPEMENT</li>
+    <li class="niveau2">II.1 &nbsp; Description du dataset</li>
+    <li class="niveau2">II.2 &nbsp; Analyse exploratoire des données (EDA)</li>
+    <li class="niveau2">II.3 &nbsp; Prétraitement et modélisation</li>
+    <li class="niveau1">III. &nbsp; RÉSULTATS ET DISCUSSION</li>
+    <li class="niveau2">III.1 Principaux résultats obtenus</li>
+    <li class="niveau2">III.2 Interprétation et analyse critique</li>
+    <li class="niveau2">III.3 Limites et axes d'amélioration</li>
+    <li class="niveau1">IV. &nbsp;&nbsp; CONCLUSION</li>
+    <li class="niveau1">BIBLIOGRAPHIE / WEBOGRAPHIE</li>
+    <li class="niveau1">ANNEXES</li>
+  </ul>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 2</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     I. INTRODUCTION
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <h1>I. &nbsp; INTRODUCTION</h1>
+
+  <h2>I.1 &nbsp; Contexte et problématique</h2>
+  <p>Le secteur bancaire marocain est soumis à des exigences réglementaires croissantes de la part de <strong>Bank Al-Maghrib (BAM)</strong>, notamment en matière d'octroi de crédit et de maîtrise du risque. Dans ce cadre, les établissements financiers cherchent à objectiver et à automatiser leurs décisions d'attribution de prêts, en s'appuyant sur des outils quantitatifs robustes.</p>
+  <p>La présente étude s'inscrit dans cette dynamique en proposant un modèle de <strong>scoring crédit</strong> appliqué à la banque fictive <strong>Al-Wifaq Bank</strong> (Casablanca, Maroc). La problématique centrale peut être formulée comme suit :</p>
+  <div class="encadre-problematique">
+    Dans quelle mesure les techniques de régression pénalisée permettent-elles de prédire de manière fiable le montant de crédit à accorder à un client, tout en respectant les contraintes réglementaires imposées par Bank Al-Maghrib ?
+  </div>
+
+  <h2>I.2 &nbsp; Objectifs du projet</h2>
+  <p class="no-indent">Ce projet poursuit quatre objectifs complémentaires :</p>
+  <ol>
+    <li>Construire un dataset synthétique réaliste, calibré sur les données économiques marocaines (HCP, BAM) ;</li>
+    <li>Appliquer et comparer quatre modèles de régression supervisée : <strong>Linéaire</strong>, <strong>Ridge (L2)</strong>, <strong>Lasso (L1)</strong> et <strong>ElasticNet</strong> ;</li>
+    <li>Identifier les variables déterminantes du montant de crédit accordé à travers l'interprétation des coefficients ;</li>
+    <li>Simuler la décision d'octroi pour un profil client concret, en vérifiant la conformité au plafond BAM.</li>
+  </ol>
+
+  <h2>I.3 &nbsp; Méthodologie adoptée</h2>
+  <p>La démarche adoptée suit le cycle standard d'un projet de Machine Learning supervisé, articulé en sept étapes :</p>
+
+  <table>
+    <thead><tr><th>Étape</th><th>Contenu</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Génération des données</strong></td><td>Simulation d'un portefeuille de 2 000 clients selon les règles BAM</td></tr>
+      <tr><td><strong>Exploration (EDA)</strong></td><td>Analyse des distributions, corrélations et comportements par catégories</td></tr>
+      <tr><td><strong>Prétraitement</strong></td><td>Encodage One-Hot, partitionnement 80/20, normalisation StandardScaler</td></tr>
+      <tr><td><strong>Modélisation</strong></td><td>Entraînement de 4 modèles avec sélection de λ par validation croisée</td></tr>
+      <tr><td><strong>Évaluation</strong></td><td>R², RMSE, MAE, R² CV-5 ; analyse des résidus</td></tr>
+      <tr><td><strong>Interprétation</strong></td><td>Lecture des coefficients β Ridge et Lasso</td></tr>
+      <tr><td><strong>Simulation</strong></td><td>Prédiction sur un profil client fictif (M. Mohammed BENALI)</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 1 : Démarche méthodologique du projet</p>
+
+  <p>L'ensemble du traitement a été réalisé en <strong>Python 3.10</strong>, à l'aide des bibliothèques <code>NumPy</code>, <code>Pandas</code>, <code>Scikit-learn</code> et <code>Matplotlib/Seaborn</code>.</p>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 3</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     II. DÉVELOPPEMENT
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <h1>II. &nbsp; DÉVELOPPEMENT</h1>
+
+  <h2>II.1 &nbsp; Description du dataset</h2>
+
+  <h3>II.1.1 &nbsp; Contexte de simulation</h3>
+  <p>Le dataset simule un portefeuille de <strong>2 000 clients</strong> de la banque fictive Al-Wifaq Bank. Les paramètres sont calibrés sur des données réelles : revenus médians marocains d'environ <strong>7 500 MAD/mois</strong> (HCP Maroc, 2023), taux d'endettement maximal de <strong>40 %</strong> du revenu net (règle BAM), et score de crédit compris entre <strong>300 et 950 points</strong>.</p>
+
+  <h3>II.1.2 &nbsp; Dictionnaire des variables</h3>
+  <table>
+    <thead><tr><th>Variable</th><th>Description</th><th>Type</th><th>Plage</th></tr></thead>
+    <tbody>
+      <tr><td><code>age</code></td><td>Âge du client</td><td>Numérique</td><td>22–65 ans</td></tr>
+      <tr><td><code>revenu_mensuel</code></td><td>Revenu mensuel net</td><td>Numérique</td><td>2 500–60 000 MAD</td></tr>
+      <tr><td><code>anciennete_emploi</code></td><td>Ancienneté professionnelle</td><td>Numérique</td><td>0–35 ans</td></tr>
+      <tr><td><code>score_credit</code></td><td>Score de solvabilité</td><td>Numérique</td><td>300–950 pts</td></tr>
+      <tr><td><code>taux_endettement</code></td><td>Ratio dette/revenu</td><td>Numérique</td><td>0–70 %</td></tr>
+      <tr><td><code>nb_credits_actifs</code></td><td>Crédits en cours</td><td>Numérique</td><td>0–6</td></tr>
+      <tr><td><code>historique_remboursement</code></td><td>Score d'historique</td><td>Numérique</td><td>0–100 pts</td></tr>
+      <tr><td><code>valeur_garantie</code></td><td>Valeur de la garantie</td><td>Numérique</td><td>30 000–2 500 000 MAD</td></tr>
+      <tr><td><code>type_emploi</code></td><td>Catégorie professionnelle</td><td>Catégorielle</td><td>5 modalités</td></tr>
+      <tr><td><code>secteur_activite</code></td><td>Secteur économique</td><td>Catégorielle</td><td>7 modalités</td></tr>
+      <tr><td><code>region</code></td><td>Région géographique</td><td>Catégorielle</td><td>7 modalités</td></tr>
+      <tr><td><code>objet_credit</code></td><td>Finalité du prêt</td><td>Catégorielle</td><td>5 modalités</td></tr>
+      <tr class="gold"><td><strong><code>montant_credit</code></strong></td><td><strong>Variable cible — Montant accordé</strong></td><td><strong>Numérique</strong></td><td><strong>10 000–2 197 324 MAD</strong></td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 2 : Dictionnaire des variables du dataset Al-Wifaq Bank</p>
+
+  <h3>II.1.3 &nbsp; Extrait du code de génération</h3>
+<pre>np.random.seed(42)
+N = 2000
+
+# Variables numériques
+revenu_mensuel  = np.random.lognormal(mean=np.log(7500), sigma=0.55, size=N).clip(2500, 60000)
+score_credit    = np.random.normal(loc=620, scale=90, size=N).clip(300, 950).astype(int)
+
+# Modèle économique d'octroi (règles Bank Al-Maghrib)
+capacite_base     = revenu_mensuel * np.random.uniform(30, 48, N)
+coeff_score       = (score_credit - 300) / 700
+coeff_endettement = np.where(taux_endettement &lt; 33, 1.2,
+                    np.where(taux_endettement &lt; 45, 0.9, 0.6))
+bonus_objet       = np.where(objets_credit == 'Immobilier', 1.80, 1.0)
+malus_credits     = 1 - (nb_credits_actifs * 0.07)
+
+montant_credit = (capacite_base * coeff_score * coeff_endettement *
+                  coeff_anciennete * coeff_historique * coeff_garantie *
+                  bonus_emploi * bonus_objet * malus_credits + bruit).clip(10000, 3000000)</pre>
+
+  <p class="no-indent"><strong>Résultats console :</strong></p>
+<div class="console"><span class="ok">✅</span> <span class="head">Dataset généré : 2,000 clients × 13 variables</span>
+   Montant moyen  : <span class="num">     323,775 MAD</span>
+   Montant médian : <span class="num">     246,004 MAD</span>
+   Écart-type     : <span class="num">     277,890 MAD</span>
+   Min / Max      : <span class="num">10,000 / 2,197,324 MAD</span></div>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 4</span>
+  </div>
+</div>
+
+
+<div class="page">
+  <h2>II.2 &nbsp; Analyse exploratoire des données (EDA)</h2>
+
+  <h3>II.2.1 &nbsp; Statistiques descriptives</h3>
+  <p>L'analyse descriptive ne révèle <strong>aucune valeur manquante</strong>, ce qui simplifie le prétraitement.</p>
+
+  <table>
+    <thead><tr><th>Variable</th><th>Moyenne</th><th>Écart-type</th><th>Min</th><th>Médiane</th><th>Max</th><th>CV%</th></tr></thead>
+    <tbody>
+      <tr><td><code>revenu_mensuel</code></td><td class="center">9 214</td><td class="center">6 823</td><td class="center">2 500</td><td class="center">7 200</td><td class="center">60 000</td><td class="center">74,1 %</td></tr>
+      <tr><td><code>score_credit</code></td><td class="center">620</td><td class="center">90</td><td class="center">300</td><td class="center">621</td><td class="center">950</td><td class="center">14,5 %</td></tr>
+      <tr><td><code>taux_endettement</code></td><td class="center">22,1</td><td class="center">12,8</td><td class="center">0,1</td><td class="center">20,5</td><td class="center">70,0</td><td class="center">57,9 %</td></tr>
+      <tr><td><code>historique_remb.</code></td><td class="center">72,1</td><td class="center">17,9</td><td class="center">0</td><td class="center">72,5</td><td class="center">100</td><td class="center">24,8 %</td></tr>
+      <tr><td><code>valeur_garantie</code></td><td class="center">277 890</td><td class="center">357 200</td><td class="center">30 000</td><td class="center">182 000</td><td class="center">2 500 000</td><td class="center">128,5 %</td></tr>
+      <tr class="gold"><td><strong><code>montant_credit</code></strong></td><td class="center bold">323 775</td><td class="center bold">277 890</td><td class="center bold">10 000</td><td class="center bold">246 004</td><td class="center bold">2 197 324</td><td class="center bold">85,8 %</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 3 : Statistiques descriptives des principales variables numériques</p>
+
+  <h3>II.2.2 &nbsp; Distribution de la variable cible</h3>
+  <p>La distribution brute présente une <strong>asymétrie à droite prononcée</strong> (skewness positif), caractéristique des variables financières. La transformation logarithmique normalise efficacement cette distribution, validant l'approche de modélisation linéaire après standardisation. Par objet de crédit, les crédits immobiliers présentent la médiane la plus élevée (~450 k MAD), tandis que les crédits à la consommation restent les plus faibles (~80 k MAD).</p>
+
+  <h3>II.2.3 &nbsp; Corrélations avec la variable cible</h3>
+  <table>
+    <thead><tr><th>Variable</th><th style="text-align:center;">Coeff. Pearson (r)</th><th>Sens de la relation</th></tr></thead>
+    <tbody>
+      <tr><td><code>revenu_mensuel</code></td><td class="center bold" style="color:#006633;">+0,65</td><td>Plus le revenu est élevé, plus le crédit est important</td></tr>
+      <tr><td><code>score_credit</code></td><td class="center bold" style="color:#006633;">+0,41</td><td>Un bon score favorise l'obtention d'un crédit conséquent</td></tr>
+      <tr><td><code>valeur_garantie</code></td><td class="center bold" style="color:#006633;">+0,38</td><td>Une garantie élevée rassure la banque</td></tr>
+      <tr><td><code>historique_remboursement</code></td><td class="center bold" style="color:#006633;">+0,25</td><td>Un historique sain génère un surcroît de confiance</td></tr>
+      <tr><td><code>nb_credits_actifs</code></td><td class="center bold" style="color:#C1272D;">−0,18</td><td>Un endettement multiple réduit la capacité d'emprunt</td></tr>
+      <tr><td><code>taux_endettement</code></td><td class="center bold" style="color:#C1272D;">−0,12</td><td>Le respect de la règle des 40 % est pris en compte</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 4 : Corrélations des variables numériques avec le montant de crédit</p>
+  <p>Il convient de noter l'<strong>absence de multicolinéarité forte</strong> entre les prédicteurs numériques (r &lt; 0,40 dans tous les cas), ce qui est favorable à la stabilité des estimateurs.</p>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 5</span>
+  </div>
+</div>
+
+
+<div class="page">
+  <h2>II.3 &nbsp; Prétraitement et modélisation</h2>
+
+  <h3>II.3.1 &nbsp; Prétraitement des données</h3>
+  <p class="no-indent"><strong>1. Encodage One-Hot</strong> des 4 variables catégorielles (28 variables au total) :</p>
+<pre>df_model = pd.get_dummies(df, columns=cat_cols, drop_first=True, dtype=float)
+# Résultat : 28 variables au total (8 numériques + 20 binaires)</pre>
+
+  <p class="no-indent"><strong>2. Partitionnement Train/Test</strong> (80 % / 20 %) :</p>
+<pre>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=42)
+# Train : 1 600 observations | Test : 400 observations</pre>
+
+  <p class="no-indent"><strong>3. Normalisation StandardScaler</strong> (μ = 0, σ = 1) :</p>
+<pre>scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled  = scaler.transform(X_test)</pre>
+
+  <div class="encadre-note">
+    <strong>Note méthodologique —</strong> La normalisation est indispensable pour Ridge et Lasso : sans elle, les variables à grande échelle (ex. <code>revenu_mensuel</code> en MAD) seraient pénalisées disproportionnellement par rapport aux variables à petite échelle (ex. <code>nb_credits_actifs</code>).
+  </div>
+
+  <h3>II.3.2 &nbsp; Modèle 1 — Régression Linéaire (Baseline)</h3>
+  <p>La régression linéaire ordinaire sert de <strong>point de référence</strong> pour évaluer l'apport des méthodes régularisées. Elle minimise les résidus au carré sans aucune pénalisation.</p>
+<pre>lr = LinearRegression()
+lr.fit(X_train_scaled, y_train)
+y_pred_lr = lr.predict(X_test_scaled)</pre>
+<div class="console"><span class="head">═══ RÉGRESSION LINÉAIRE (BASELINE) ══════════════════</span>
+  R²      : <span class="num">0.7978</span>  → 79,78 % de variance expliquée
+  R² CV-5 : <span class="num">0.8044</span>
+  RMSE    : <span class="num">   132,679 MAD</span>
+  MAE     : <span class="num">    86,200 MAD</span></div>
+
+  <h3>II.3.3 &nbsp; Modèle 2 — Régression Ridge (L2)</h3>
+  <p>La pénalité L2 <strong>rétrécit les coefficients vers 0 sans les annuler</strong>, conférant une stabilité accrue face à la multicolinéarité. Le paramètre λ optimal est sélectionné par validation croisée à 10 folds sur 100 valeurs.</p>
+<pre>ridge_cv = RidgeCV(alphas=np.logspace(-3, 5, 100), cv=10, scoring='r2')
+ridge_cv.fit(X_train_scaled, y_train)
+best_alpha_ridge = ridge_cv.alpha_   # Valeur optimale : λ ≈ 11</pre>
+<div class="console"><span class="head">═══ RIDGE (alpha ≈ 11) ══════════════════════════════</span>
+  R²      : <span class="num">0.7968</span>  → 79,68 % de variance expliquée
+  R² CV-5 : <span class="num">0.8046</span>
+  RMSE    : <span class="num">   133,000 MAD</span>
+  MAE     : <span class="num">    86,000 MAD</span></div>
+
+  <h3>II.3.4 &nbsp; Modèle 3 — Régression Lasso (L1)</h3>
+  <p>La norme L1 génère des solutions <strong>parcimonieuses</strong> : certains coefficients s'annulent exactement, conférant au Lasso une propriété de <strong>sélection automatique de variables</strong>. Cette caractéristique est particulièrement précieuse pour le scoring bancaire où la transparence des décisions est exigée par BAM.</p>
+<pre>lasso_cv = LassoCV(alphas=np.logspace(-1, 6, 100), cv=10, random_state=42, max_iter=10000)
+lasso_cv.fit(X_train_scaled, y_train)
+best_alpha_lasso = lasso_cv.alpha_   # Valeur optimale : λ ≈ 559</pre>
+<div class="console"><span class="head">═══ LASSO (alpha ≈ 559) ═════════════════════════════</span>
+  R²      : <span class="num">0.7982</span>  → 79,82 % de variance expliquée
+  R² CV-5 : <span class="num">0.8047</span>
+  RMSE    : <span class="num">   132,577 MAD</span>
+  MAE     : <span class="num">    85,400 MAD</span>
+  <span class="ok">✅ Variables SÉLECTIONNÉES : 27/28</span>
+  ❌ Variables ÉLIMINÉES     :  1/28</div>
+
+  <h3>II.3.5 &nbsp; Modèle 4 — ElasticNet (L1 + L2)</h3>
+  <p>L'ElasticNet combine les pénalités L1 et L2. Les hyperparamètres optimaux sont sélectionnés par <strong>Grid Search à 5 folds</strong>, confirmant la dominance de la composante Lasso (<code>l1_ratio=0,9</code>).</p>
+<pre>param_grid = {'alpha': [0.1,1,10,100,500,1000,5000], 'l1_ratio': [0.1,0.3,0.5,0.7,0.9]}
+en_gs = GridSearchCV(ElasticNet(max_iter=10000), param_grid, cv=5, scoring='r2', n_jobs=-1)
+en_gs.fit(X_train_scaled, y_train)
+# Meilleurs paramètres : alpha=0.1, l1_ratio=0.9</pre>
+<div class="console"><span class="head">═══ ELASTICNET (alpha=0.1, l1_ratio=0.9) ════════════</span>
+  R²      : <span class="num">0.7964</span>  → 79,64 % de variance expliquée
+  R² CV-5 : <span class="num">0.8046</span>
+  RMSE    : <span class="num">   133,200 MAD</span>
+  MAE     : <span class="num">    85,900 MAD</span></div>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 6</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     III. RÉSULTATS ET DISCUSSION
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <h1>III. &nbsp; RÉSULTATS ET DISCUSSION</h1>
+
+  <h2>III.1 &nbsp; Principaux résultats obtenus</h2>
+
+  <h3>III.1.1 &nbsp; Comparaison des performances des modèles</h3>
+  <table>
+    <thead><tr><th>Rang</th><th>Modèle</th><th>R²</th><th>R² CV-5</th><th>RMSE (MAD)</th><th>MAE (MAD)</th></tr></thead>
+    <tbody>
+      <tr class="gold"><td class="center">🥇 1</td><td><strong>Lasso (L1) — RECOMMANDÉ</strong></td><td class="center bold">0,7982</td><td class="center bold">0,8047</td><td class="center bold">132 577</td><td class="center bold">85 400</td></tr>
+      <tr><td class="center">2</td><td>Linéaire (Baseline)</td><td class="center">0,7978</td><td class="center">0,8044</td><td class="center">132 679</td><td class="center">86 200</td></tr>
+      <tr><td class="center">3</td><td>Ridge (L2)</td><td class="center">0,7968</td><td class="center">0,8046</td><td class="center">133 000</td><td class="center">86 000</td></tr>
+      <tr><td class="center">4</td><td>ElasticNet (L1+L2)</td><td class="center">0,7964</td><td class="center">0,8046</td><td class="center">133 200</td><td class="center">85 900</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 5 : Comparaison des quatre modèles — Al-Wifaq Bank</p>
+
+  <h3>III.1.2 &nbsp; Variables les plus déterminantes (coefficients β)</h3>
+  <table>
+    <thead><tr><th>Variable</th><th>Ridge β (MAD)</th><th>Lasso β (MAD)</th><th>Sens</th><th>Impact</th></tr></thead>
+    <tbody>
+      <tr><td><code>revenu_mensuel</code></td><td class="center" style="color:#006633;font-weight:bold;">+182 429</td><td class="center" style="color:#006633;">+181 200</td><td class="center" style="color:#006633;font-weight:bold;">POSITIF</td><td class="center">Fort</td></tr>
+      <tr><td><code>objet_credit_Immobilier</code></td><td class="center" style="color:#006633;font-weight:bold;">+123 380</td><td class="center" style="color:#006633;">+122 100</td><td class="center" style="color:#006633;font-weight:bold;">POSITIF</td><td class="center">Fort</td></tr>
+      <tr><td><code>score_credit</code></td><td class="center" style="color:#006633;font-weight:bold;">+86 661</td><td class="center" style="color:#006633;">+85 900</td><td class="center" style="color:#006633;font-weight:bold;">POSITIF</td><td class="center">Fort</td></tr>
+      <tr><td><code>objet_credit_Equipement_pro</code></td><td class="center" style="color:#006633;">+42 583</td><td class="center" style="color:#006633;">+41 800</td><td class="center" style="color:#006633;">POSITIF</td><td class="center">Modéré</td></tr>
+      <tr><td><code>valeur_garantie</code></td><td class="center" style="color:#006633;">+35 000</td><td class="center" style="color:#006633;">+34 500</td><td class="center" style="color:#006633;">POSITIF</td><td class="center">Modéré</td></tr>
+      <tr><td><code>type_emploi_Indépendant</code></td><td class="center" style="color:#C1272D;font-weight:bold;">−47 410</td><td class="center" style="color:#C1272D;">−46 900</td><td class="center" style="color:#C1272D;font-weight:bold;">NÉGATIF</td><td class="center">Fort</td></tr>
+      <tr><td><code>taux_endettement</code></td><td class="center" style="color:#C1272D;">−28 000</td><td class="center" style="color:#C1272D;">−27 500</td><td class="center" style="color:#C1272D;">NÉGATIF</td><td class="center">Modéré</td></tr>
+      <tr><td><code>nb_credits_actifs</code></td><td class="center" style="color:#C1272D;">−22 000</td><td class="center" style="color:#C1272D;">−22 000</td><td class="center" style="color:#C1272D;">NÉGATIF</td><td class="center">Modéré</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 6 : Coefficients β des principales variables (Ridge et Lasso, variables standardisées)</p>
+
+  <h3>III.1.3 &nbsp; Simulation — Profil Mohammed BENALI</h3>
+  <table>
+    <thead><tr><th>Critère</th><th>Valeur</th><th>Évaluation BAM</th></tr></thead>
+    <tbody>
+      <tr><td>Revenu mensuel</td><td>22 500 MAD</td><td style="color:#006633;font-weight:bold;">✅ Conforme — revenu stable</td></tr>
+      <tr><td>Score de crédit</td><td>720 / 950</td><td style="color:#006633;font-weight:bold;">✅ Bon profil</td></tr>
+      <tr><td>Taux d'endettement</td><td>28 %</td><td style="color:#006633;font-weight:bold;">✅ &lt; 40 % (conforme BAM)</td></tr>
+      <tr><td>Valeur garantie</td><td>850 000 MAD</td><td style="color:#006633;font-weight:bold;">✅ Suffisante</td></tr>
+      <tr class="gold"><td><strong>Montant prédit (Lasso)</strong></td><td><strong>1 137 068 MAD</strong></td><td style="color:#006633;font-weight:bold;">✅ Conforme — inférieur au plafond BAM (2 160 000 MAD)</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 7 : Évaluation du dossier de M. BENALI selon les critères BAM</p>
+
+<div class="console"><span class="head">═══ RÉSULTATS DES PRÉDICTIONS — Mohammed BENALI ════</span>
+  Linéaire   : <span class="num">1 141 230 MAD</span>  (50× salaire mensuel)
+  Ridge      : <span class="num">1 139 614 MAD</span>  (50× salaire mensuel)
+  Lasso      : <span class="num">1 137 068 MAD</span>  (50× salaire mensuel)
+  ElasticNet : <span class="num">1 138 900 MAD</span>  (50× salaire mensuel)
+
+  📌 Plafond BAM (40 % × 240 mois) : <span class="num">2 160 000 MAD</span>
+  <span class="ok">🏦 Décision indicative : ✅ ACCORDÉ</span></div>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 7</span>
+  </div>
+</div>
+
+
+<div class="page">
+  <h2>III.2 &nbsp; Interprétation et analyse critique</h2>
+  <p>Les quatre modèles affichent des performances remarquablement proches, avec un <strong>R² ≈ 0,80</strong> en test et en validation croisée. Cette convergence témoigne de la solidité du dataset synthétique et de la cohérence de l'approche linéaire pour ce type de scoring. Il convient néanmoins de relativiser : une RMSE de ~133 000 MAD représente une erreur relative d'environ 41 % par rapport au montant moyen, ce qui demeurerait significatif dans un contexte opérationnel réel.</p>
+  <p>L'interprétation des coefficients β met en évidence que le <strong>revenu mensuel</strong> constitue de loin le facteur le plus déterminant (β ≈ +182 000 MAD), conformément aux prescriptions de BAM qui conditionnent le montant accordé à la capacité de remboursement mensuelle. L'<strong>objet immobilier</strong> bénéficie d'un coefficient très élevé (β ≈ +123 000 MAD), car le bien immobilier constitue lui-même une garantie et s'inscrit dans la politique d'accès à la propriété au Maroc.</p>
+
+  <table>
+    <thead><tr><th>Critère</th><th>Ridge (L2)</th><th>Lasso (L1)</th></tr></thead>
+    <tbody>
+      <tr><td>Performance (R²)</td><td class="center">0,7968</td><td class="center bold" style="color:#006633;">0,7982 — meilleur</td></tr>
+      <tr><td>Sélection de variables</td><td class="center">Non (conserve tout)</td><td class="center bold" style="color:#006633;">Oui (1 var. éliminée)</td></tr>
+      <tr><td>Interprétabilité</td><td class="center">Bonne</td><td class="center bold" style="color:#006633;">Excellente</td></tr>
+      <tr><td>Stabilité numérique</td><td class="center bold" style="color:#006633;">Très bonne</td><td class="center">Bonne</td></tr>
+      <tr><td>Gestion multicolinéarité</td><td class="center bold" style="color:#006633;">Robuste</td><td class="center">Instable si r élevé</td></tr>
+      <tr class="gold"><td><strong>Recommandation BAM</strong></td><td class="center">Reporting réglementaire</td><td class="center bold" style="color:#006633;">Scoring opérationnel</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau 8 : Comparaison Ridge vs Lasso pour le scoring bancaire</p>
+
+  <h2>III.3 &nbsp; Limites et axes d'amélioration</h2>
+  <p>Plusieurs limites méritent d'être soulignées. En premier lieu, le <strong>caractère synthétique du dataset</strong> constitue une limite fondamentale : les données ne sont pas issues de transactions bancaires réelles. En second lieu, des <strong>variables importantes</strong> dans la pratique bancaire marocaine n'ont pas été intégrées, notamment la durée souhaitée du prêt, l'apport personnel et la situation matrimoniale.</p>
+  <p>Par ailleurs, les modèles linéaires ne peuvent pas capturer des <strong>effets d'interaction ou des seuils non linéaires</strong>. Enfin, l'absence de <strong>variable temporelle</strong> empêche le modèle de tenir compte de la conjoncture économique (taux directeur BAM, inflation).</p>
+  <p class="no-indent">En perspective, il est recommandé de :</p>
+  <ul>
+    <li>Tester des modèles <strong>non-linéaires</strong> : Random Forest, XGBoost, Neural Networks ;</li>
+    <li>Intégrer des <strong>données macro-économiques</strong> issues du HCP et de BAM ;</li>
+    <li>Développer une <strong>API Flask/FastAPI</strong> avec tableau de bord Streamlit pour les chargés de crédit.</li>
+  </ul>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 8</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     IV. CONCLUSION
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <h1>IV. &nbsp; CONCLUSION</h1>
+  <p>Ce projet a permis de développer et d'évaluer quatre modèles de régression supervisée appliqués à la prédiction du montant de crédit bancaire au sein de la banque fictive Al-Wifaq Bank. La démarche a confirmé la pertinence de l'approche par régression pénalisée pour ce type de problème de scoring financier.</p>
+  <p>Les quatre modèles expliquent environ <strong>80 % de la variance</strong> du montant de crédit accordé (R² ≈ 0,80). Le <strong>Lasso (L1)</strong> se distingue comme le modèle recommandé pour un déploiement opérationnel, en raison de son meilleur R² (0,7982), de sa capacité de sélection de variables (27/28 retenues) et de son adéquation avec les exigences de transparence réglementaire de Bank Al-Maghrib.</p>
+  <p>L'analyse des coefficients a mis en évidence que le <strong>revenu mensuel</strong>, l'<strong>objet du crédit</strong> et le <strong>score de crédit</strong> constituent les trois facteurs les plus déterminants, tandis que le <strong>statut d'indépendant</strong> et un <strong>taux d'endettement élevé</strong> exercent des effets pénalisants significatifs. Ces résultats sont cohérents avec la logique économique et réglementaire du secteur bancaire marocain.</p>
+  <p>La simulation appliquée au profil de M. Mohammed BENALI a produit une prédiction convergente d'environ <strong>1,14 M MAD</strong> pour les quatre modèles, montant conforme au plafond réglementaire BAM et cohérent avec les caractéristiques du profil client.</p>
+  <p>En perspective, l'introduction de modèles non-linéaires et de données macro-économiques, ainsi que le déploiement via une API, constituent des pistes prometteuses pour renforcer la robustesse et l'applicabilité opérationnelle du système de scoring développé.</p>
+
+  <hr class="sep">
+
+  <h1>BIBLIOGRAPHIE / WEBOGRAPHIE</h1>
+  <table>
+    <thead><tr><th>Source</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Bank Al-Maghrib</strong> — bkam.ma</td><td>Rapport annuel secteur bancaire 2024 · Circulaire n°19/G/2002</td></tr>
+      <tr><td><strong>HCP Maroc</strong> — hcp.ma</td><td>Statistiques des revenus des ménages marocains 2023</td></tr>
+      <tr><td><strong>Kaggle Loan Dataset</strong></td><td>Dataset de référence pour la prédiction de crédit (Mosaad Hendam)</td></tr>
+      <tr><td>Tibshirani, R. (1996)</td><td><em>Regression Shrinkage and Selection via the Lasso</em> — JRSS, Series B</td></tr>
+      <tr><td>Hoerl &amp; Kennard (1970)</td><td><em>Ridge Regression: Biased Estimation</em> — Technometrics</td></tr>
+      <tr><td><strong>scikit-learn</strong> — scikit-learn.org</td><td>Documentation officielle : Ridge, Lasso, ElasticNet, GridSearchCV</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 9</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     ANNEXES
+═══════════════════════════════════════════════════════════ -->
+<div class="page">
+  <h1>ANNEXES</h1>
+
+  <h2>Annexe A — Bibliothèques Python utilisées</h2>
+<pre>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import warnings
+warnings.filterwarnings('ignore')
+
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import (LinearRegression, Ridge, Lasso, ElasticNet,
+                                   RidgeCV, LassoCV, lasso_path)
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
+print("✅ Bibliothèques importées avec succès !")</pre>
+
+  <h2>Annexe B — Paramètres optimaux des modèles</h2>
+  <table>
+    <thead><tr><th>Modèle</th><th>Paramètre</th><th style="text-align:center;">Valeur optimale</th><th>Méthode de sélection</th></tr></thead>
+    <tbody>
+      <tr><td>Ridge</td><td>λ (alpha)</td><td class="center bold">≈ 11</td><td>RidgeCV — 100 valeurs, CV-10</td></tr>
+      <tr><td>Lasso</td><td>λ (alpha)</td><td class="center bold">≈ 559</td><td>LassoCV — 100 valeurs, CV-10</td></tr>
+      <tr><td>ElasticNet</td><td>alpha=0,1 ; l1_ratio=0,9</td><td class="center bold">—</td><td>GridSearchCV — CV-5 (grille 7×5)</td></tr>
+    </tbody>
+  </table>
+  <p class="table-caption">Tableau B1 : Récapitulatif des hyperparamètres sélectionnés</p>
+
+  <h2>Annexe C — Sélection des variables par le Lasso</h2>
+<div class="console"><span class="ok">✅ Variables RETENUES  : 27/28</span>
+❌ Variables ÉLIMINÉES :  1/28
+
+<span class="ok">+</span> revenu_mensuel                 : β = <span class="num">+181,200 MAD</span>
+<span class="ok">+</span> objet_credit_Immobilier        : β = <span class="num">+122,100 MAD</span>
+<span class="ok">+</span> score_credit                   : β =  <span class="num">+85,900 MAD</span>
+<span class="ok">+</span> objet_credit_Equipement_pro    : β =  <span class="num">+41,800 MAD</span>
+<span class="ok">+</span> valeur_garantie                : β =  <span class="num">+34,500 MAD</span>
+<span class="ok">+</span> historique_remboursement       : β =  <span class="num">+27,800 MAD</span>
+<span class="ok">+</span> type_emploi_Fonctionnaire      : β =  <span class="num">+23,600 MAD</span>
+<span class="ok">+</span> anciennete_emploi              : β =  <span class="num">+18,200 MAD</span>
+- type_emploi_Indépendant         : β =  <span style="color:#ff6b6b;">-46,900 MAD</span>
+- taux_endettement                : β =  <span style="color:#ff6b6b;">-27,500 MAD</span>
+- nb_credits_actifs               : β =  <span style="color:#ff6b6b;">-22,000 MAD</span>
+  [... 16 autres variables retenues avec impacts plus faibles ...]</div>
+
+  <div class="pied-doc">
+    Compte rendu réalisé par <strong>Wissal EL BOUJ</strong> et <strong>Douaa EL FARGOUCH</strong><br>
+    Module : Machine Learning Appliqué à la Finance &nbsp;·&nbsp; Encadrant : M. LARHLIMI<br>
+    ENCG Settat &nbsp;·&nbsp; CAC L3 S8 &nbsp;·&nbsp; Année Universitaire 2025–2026 &nbsp;🇲🇦
+  </div>
+
+  <div class="footer-page">
+    Wissal EL BOUJ &nbsp;|&nbsp; Douaa EL FARGOUCH &nbsp;—&nbsp; ENCG Settat · CAC L3 S8 · 2025–2026 &nbsp;—&nbsp; <span>Page 10</span>
+  </div>
+</div>
+
+</body>
+</html>
